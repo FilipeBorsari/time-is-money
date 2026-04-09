@@ -1,0 +1,111 @@
+/**
+ * Estilos para badges de tempo de trabalho injetados nas páginas
+ */
+
+.price-time-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 3px 8px !important;
+  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%) !important;
+  color: white !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+  white-space: nowrap !important;
+  cursor: help !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  margin-left: 6px !important;
+  vertical-align: middle !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  letter-spacing: 0.3px !important;
+}
+
+.price-time-badge:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3) !important;
+}
+
+.price-time-icon {
+  font-size: 12px !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+.price-time-text {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: white !important;
+  line-height: 1 !important;
+}
+
+.price-time-wrapper {
+  display: inline-block !important;
+  margin-top: 4px !important;
+}
+
+/* Classe helper para marcar elementos como processados */
+.price-time-injected {
+  opacity: 1; /* Marcador - não afeta visualmente */
+}
+
+/* Variações para diferentes contextos */
+.price-time-badge.compact {
+  padding: 2px 6px !important;
+  font-size: 10px !important;
+}
+
+.price-time-badge.large {
+  padding: 5px 10px !important;
+  font-size: 12px !important;
+}
+
+/* Animação de entrada suave */
+@keyframes priceTimeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.price-time-badge {
+  animation: priceTimeFadeIn 0.3s ease-out !important;
+}
+
+/* Modo escuro adaptativo */
+@media (prefers-color-scheme: dark) {
+  .price-time-badge {
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .price-time-badge:hover {
+    box-shadow: 0 4px 8px rgba(102, 187, 106, 0.4) !important;
+  }
+}
+
+/* Responsividade mobile */
+@media (max-width: 768px) {
+  .price-time-badge {
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+  }
+  
+  .price-time-icon {
+    font-size: 11px !important;
+  }
+}
+
+/* Garantir que não seja afetado por resets globais */
+.price-time-badge * {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

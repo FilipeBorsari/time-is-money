@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste - tempo é dinheiro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .product-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: #4CAF50;
+      margin: 16px 0;
+    }
+
+    .product-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .product-installments {
+      font-size: 13px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    .btn-buy {
+      width: 100%;
+      padding: 14px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 16px;
+    }
+
+    .btn-buy:hover {
+      background: #45a049;
+    }
+
+    .info-box {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .info-box h2 {
+      color: #333;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .info-box p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .info-box ol {
+      margin: 16px 0 16px 24px;
+      color: #666;
+      line-height: 2;
+    }
+
+    .highlight {
+      background: #FFF3CD;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #FFC107;
+      margin: 16px 0;
+    }
+
+    .footer {
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🛍️ Loja de Teste</h1>
+      <p class="subtitle">Página de demonstração para testar a extensão "tempo é dinheiro"</p>
+    </header>
+
+    <div class="info-box">
+      <h2>📋 Como testar a extensão</h2>
+      <ol>
+        <li>Certifique-se de que a extensão está instalada e ativa</li>
+        <li>Clique no ícone da extensão e configure seu salário mensal líquido (ex: R$ 3.000,00)</li>
+        <li>Salve as configurações</li>
+        <li>Você verá badges verdes ⏱️ ao lado dos preços abaixo mostrando o tempo de trabalho necessário</li>
+        <li>Teste scroll e carregamento dinâmico clicando no botão "Carregar mais produtos"</li>
+      </ol>
+      <div class="highlight">
+        <strong>💡 Dica:</strong> Os badges mostram automaticamente o tempo em horas para valores baixos, dias+horas para valores médios, e semanas+dias+horas para valores altos.
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <!-- Produto 1 - Barato -->
+      <div class="product-card">
+        <div class="product-image">📱</div>
+        <h3 class="product-name">Capinha de Celular Premium</h3>
+        <p class="product-description">Proteção completa com material de alta qualidade</p>
+        <div class="product-price">R$ 89,90</div>
+        <p class="product-installments">ou 3x de R$ 29,97</p>
+        <button class="btn-buy">Comprar Agora</button>
+      </div>
+
+      <!-- Produto 2 - Médio-Baixo -->
+      <div class="product-card">
+        <div class="product-image">🎧</div>
+        <h3 class="product-name">Fone de Ouvido Bluetooth</h3>
+        <p class="product-description">Som cristalino com cancelamento de ruído</p>
+        <div class="product-price">R$ 249,99</div>
+        <p class="product-installments">ou 6x de R$ 41,67</p>
+        <button class="btn-buy">Comprar Agora</button>
+      </div>
+
+      <!-- Produto 3 - Médio -->
+      <div class="product-card">
+        <div class="product-image">⌚</div>
+        <h3 class="product-name">Smartwatch Fitness Pro</h3>
+        <p class="product-description">Monitore sua saúde e atividades físicas</p>
+        <div class="product-price">R$ 599,00</div>
+        <p class="product-installments">ou 10x de R$ 59,90</p>
+        <button class="btn-buy">Comprar Agora</button>
+      </div>
+
+      <!-- Produto 4 - Médio-Alto -->
+      <div class="product-card">
+        <div class="product-image">💻</div>
+        <h3 class="product-name">Notebook Gamer 15.6"</h3>
+        <p class="product-description">Intel Core i5, 16GB RAM, SSD 512GB</p>
+        <div class="product-price">R$ 3.899,00</div>
+        <p class="product-installments">ou 12x de R$ 324,92</p>
+        <button class="btn-buy">Comprar Agora</button>
+      </div>
+
+      <!-- Produto 5 - Alto -->
+      <div class="product-card">
+        <div class="product-image">📺</div>
+        <h3 class="product-name">Smart TV 55" 4K OLED</h3>
+        <p class="product-description">Qualidade de imagem excepcional com HDR</p>
+        <div class="product-price">R$ 5.499,90</div>
+        <p class="product-installments">ou 12x de R$ 458,33</p>
+        <button class="btn-buy">Comprar Agora</button>
+      </div>
+
+      <!-- Produto 6 - Muito Alto -->
+      <div class="product-card">
+        <div class="product-image">🏍️</div>
+        <h3 class="product-name">Moto Elétrica Scooter</h3>
+        <p class="product-description">Autonomia de 60km, velocidade max 45km/h</p>
+        <div class="product-price">R$ 8.990,00</div>
+        <p class="product-installments">ou 12x de R$ 749,17</p>
+        <button class="btn-buy">Comprar Agora</button>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <button id="loadMoreBtn" style="padding: 16px 32px; font-size: 16px; background: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        Carregar Mais Produtos
+      </button>
+    </div>
+
+    <div id="dynamicProducts"></div>
+
+    <footer class="footer">
+      <p>Esta é uma página de teste para demonstração da extensão</p>
+      <p style="margin-top: 8px;">Extensão: tempo é dinheiro v1.0.0</p>
+    </footer>
+  </div>
+
+  <script>
+    // Simular carregamento dinâmico (para testar Mutation Observer)
+    document.getElementById('loadMoreBtn').addEventListener('click', function() {
+      const container = document.getElementById('dynamicProducts');
+      
+      const newProducts = [
+        { emoji: '🎮', name: 'Console de Videogame Next-Gen', desc: 'Gráficos incríveis e desempenho superior', price: 'R$ 4.199,00', installments: '12x de R$ 349,92' },
+        { emoji: '📷', name: 'Câmera DSLR Profissional', desc: 'Capture momentos com qualidade profissional', price: 'R$ 6.799,00', installments: '12x de R$ 566,58' },
+        { emoji: '🏃', name: 'Tênis de Corrida Premium', desc: 'Máximo conforto e performance', price: 'R$ 499,90', installments: '5x de R$ 99,98' },
+        { emoji: '🎸', name: 'Guitarra Elétrica', desc: 'Som profissional para músicos exigentes', price: 'R$ 2.890,00', installments: '10x de R$ 289,00' }
+      ];
+
+      const grid = document.createElement('div');
+      grid.className = 'products-grid';
+      grid.style.marginTop = '40px';
+
+      newProducts.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div class="product-image">${product.emoji}</div>
+          <h3 class="product-name">${product.name}</h3>
+          <p class="product-description">${product.desc}</p>
+          <div class="product-price">${product.price}</div>
+          <p class="product-installments">ou ${product.installments}</p>
+          <button class="btn-buy">Comprar Agora</button>
+        `;
+        grid.appendChild(card);
+      });
+
+      container.appendChild(grid);
+      this.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

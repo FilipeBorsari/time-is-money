@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tempo é dinheiro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">⏱️</div>
+      <h1>Preço em Tempo</h1>
+    </header>
+
+    <div class="content">
+      <div class="settings-section">
+        <label for="salary">Salário Líquido Mensal (R$)</label>
+        <div class="input-group">
+          <span class="input-prefix">R$</span>
+          <input 
+            type="text" 
+            id="salary" 
+            placeholder="3000,00" 
+            maxlength="15"
+          />
+        </div>
+        <p class="help-text">Digite seu salário líquido mensal para calcular o tempo de trabalho necessário</p>
+      </div>
+
+      <div class="settings-section">
+        <label for="workHours">Jornada diária de trabalho (horas)</label>
+        <div class="input-group input-group--hours">
+          <input
+            type="number"
+            id="workHours"
+            min="1"
+            max="16"
+            placeholder="8"
+          />
+          <span class="input-suffix">h / dia</span>
+        </div>
+        <p class="help-text">Informe quantas horas você trabalha por dia. O sistema usará isso para exibir <strong>dias trabalhados</strong> na conversão.</p>
+      </div>
+
+      <div class="toggle-section">
+        <label class="toggle-container">
+          <span>Extensão ativa</span>
+          <input type="checkbox" id="enabled" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <button id="save" class="btn-primary">Salvar Configurações</button>
+
+      <div id="status" class="status hidden"></div>
+
+      <div class="info-section">
+        <h3>Como funciona?</h3>
+        <p>A extensão detecta automaticamente preços em sites brasileiros e mostra quanto tempo de trabalho é necessário para comprá-los.</p>
+        <div class="example">
+          <strong>Exemplo</strong> (salário R$ 4.000, 8h/dia): Para R$ 300, serão necessários <span class="highlight">1 dia, 5 horas e 12 minutos trabalhados</span>
+          <br><small>* 1 dia de trabalho = sua jornada configurada, não 24 horas</small>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>v1.0.0</p>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
