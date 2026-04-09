@@ -1,7 +1,3 @@
-/**
- * Content Script - Detector e conversor de preços em tempo de trabalho
- */
-
 (function() {
   'use strict';
 
@@ -16,15 +12,10 @@
   
   const PRICE_REGEX = /R\$\s*(\d{1,3}(?:\.\d{3})*(?:,\d{2})?|\d+(?:,\d{2})?)/gi;
 
-  /**
-   * Verifica se a página atual é uma página de produto/e-commerce
-   */
   function isProductPage() {
-    // 1. Open Graph type = product
     const ogType = document.querySelector('meta[property="og:type"]');
     if (ogType && ogType.getAttribute('content') === 'product') return true;
 
-    // 2. JSON-LD com @type Product ou Offer
     const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
     for (const script of jsonLdScripts) {
       try {
@@ -41,7 +32,6 @@
       } catch (e) { /* JSON inválido, ignorar */ }
     }
 
-    // 3. Indicadores comuns de página de produto
     const productSelectors = [
       '[class*="product-price"]',
       '[class*="productPrice"]',
@@ -63,9 +53,6 @@
     return false;
   }
 
-  /**
-   * Inicializa a extensão
-   */
   async function init() {
     console.log('🕐 Preço em Tempo - Iniciando...');
     
@@ -89,9 +76,6 @@
     console.log('🕐 Preço em Tempo - Ativo');
   }
 
-  /**
-   * Carrega configurações do Chrome Storage
-   */
   async function loadSettings() {
     try {
       const data = await StorageHelper.getSettings();
@@ -166,10 +150,6 @@
     });
   }
 
-  /**
-   * Sobe na árvore DOM até encontrar um ancestral sem overflow:hidden,
-   * para evitar que o badge seja cortado ou que desloque o preço original.
-   */
   function findSafeInsertionPoint(element) {
     let target = element;
     let parent = element.parentElement;
@@ -190,10 +170,8 @@
   }
 
   function injectWorkTime(element, priceText, workTime) {
-    // Sobe até o ponto seguro de inserção (fora de containers com overflow:hidden)
     const insertionTarget = findSafeInsertionPoint(element);
 
-    // Verifica se já foi injetado neste ponto de inserção
     if (injectedPoints.has(insertionTarget)) {
       return;
     }
@@ -259,7 +237,6 @@
         pendingNodes.clear();
 
         for (const node of nodesToProcess) {
-          // Processa apenas nós ainda presentes no DOM
           if (document.body.contains(node)) {
             processAllPrices(node);
           }
