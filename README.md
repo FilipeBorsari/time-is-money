@@ -2,6 +2,11 @@
 
 Extensão do Chrome que converte preços em R$ para o tempo de trabalho necessário para comprá-los.
 
+## Extensão Ativa
+<img width="1493" height="632" alt="image" src="https://github.com/user-attachments/assets/3b9f5428-610c-4c18-9d29-f59b06c26f99" />
+<img width="647" height="463" alt="image" src="https://github.com/user-attachments/assets/3968bfaf-29f7-4503-80fa-8170f8e0e690" />
+
+
 ## Funcionalidades
 
 - 🕐 Converte automaticamente preços em qualquer site para horas/dias/semanas de trabalho
@@ -22,9 +27,13 @@ Extensão do Chrome que converte preços em R$ para o tempo de trabalho necessá
 ## Exemplo
 
 Se você configurou um salário de R$ 3.000/mês:
+⏱️2 semanas 4 dias trabalhados e 5 horas e 20 minutos
 - R$ 150,00 → **11 horas**
+⏱️5 horas e 52 minutos
 - R$ 600,00 → **2 dias 4 horas**
+⏱️2 dias trabalhados e 7 horas e 28 minutos
 - R$ 6.000,00 → **2 semanas 2 dias 16 horas**
+⏱️5 semanas 4 dias trabalhados e 2 horas e 40 minutos
 
 ## Estrutura do Projeto
 
